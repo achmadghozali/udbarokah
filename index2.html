@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dunia Pasir - Eksplorasi Keajaiban Pasir</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.9) 0%, rgba(101, 67, 33, 0.9) 100%), url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQxgLK-awb-4soGA31lr1sBZ76uCY-eVLKlmSBJqx5QIs_ZDgTYhMHa04c2-qplVOpaVvcTOujXqWvB3prjtY9WnnQ2JskHsNzISN4mdSCW8hlkJBOV5Vz2J3qsLAGTzaFPKlRHUfm9A2S4Ly9Q15ReqW0yKONvZcWOl-dYfPcXKTVJ0a6iclsHC9EMs4/s1600/IMG-20250718-WA0022.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .sand-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #8B4513;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #8B4513;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6dE4OmaCq1RT2tMbpL5xNB5LUk_K8gksg5ImcgObkcUn8X0Yxzy8t_gTUEYGG15M4mR0p_kLBc5Gfx2AHg3DYJ_OCFcpsPYDVGLM259mUtXsyHb-qGZ7vWibaLg2sqNlgf2jliXSOeiZJyZg9P-_I5SMj6nN0gqO1VQecx8vHN3NcsFVJZPzbOejit_k/s1024/Logo%20for%20UD.BAROKAH%20-%20Building%20Materials%20Store%20(1).png" alt="UD Barokah" class="h-12 w-auto">
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#beranda" class="nav-link text-gray-700 hover:text-amber-800 px-3 py-2 text-sm font-medium">Beranda</a>
+                        <a href="#tentang" class="nav-link text-gray-700 hover:text-amber-800 px-3 py-2 text-sm font-medium">Tentang</a>
+                        <a href="#pasir" class="nav-link text-gray-700 hover:text-amber-800 px-3 py-2 text-sm font-medium">Pasir</a>
+                        <a href="#galeri" class="nav-link text-gray-700 hover:text-amber-800 px-3 py-2 text-sm font-medium">Batu</a>
+                        <a href="#kontak" class="nav-link text-gray-700 hover:text-amber-800 px-3 py-2 text-sm font-medium">Kontak</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-purple-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#beranda" class="block px-3 py-2 text-gray-700 hover:text-amber-800">Beranda</a>
+                <a href="#tentang" class="block px-3 py-2 text-gray-700 hover:text-amber-800">Tentang</a>
+                <a href="#pasir" class="block px-3 py-2 text-gray-700 hover:text-amber-800">Pasir</a>
+                <a href="#galeri" class="block px-3 py-2 text-gray-700 hover:text-amber-800">Batu</a>
+                <a href="#kontak" class="block px-3 py-2 text-gray-700 hover:text-amber-800">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero-gradient text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="sand-animation inline-block mb-6">
+                    <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Truck Body -->
+                        <rect x="10" y="35" width="70" height="25" rx="3" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                        <!-- Truck Cab -->
+                        <rect x="80" y="25" width="25" height="35" rx="3" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                        <!-- Truck Bed with Sand -->
+                        <path d="M10 35 L15 20 L75 20 L80 35 Z" fill="#D2691E" stroke="#8B4513" stroke-width="2"/>
+                        <!-- Sand particles -->
+                        <circle cx="25" cy="25" r="2" fill="#F4A460"/>
+                        <circle cx="35" cy="28" r="1.5" fill="#DEB887"/>
+                        <circle cx="45" cy="24" r="2" fill="#F4A460"/>
+                        <circle cx="55" cy="27" r="1.5" fill="#DEB887"/>
+                        <circle cx="65" cy="25" r="2" fill="#F4A460"/>
+                        <circle cx="30" cy="30" r="1" fill="#DEB887"/>
+                        <circle cx="50" cy="30" r="1" fill="#F4A460"/>
+                        <circle cx="60" cy="29" r="1" fill="#DEB887"/>
+                        <!-- Wheels -->
+                        <circle cx="25" cy="65" r="8" fill="#2C2C2C" stroke="#000" stroke-width="2"/>
+                        <circle cx="25" cy="65" r="4" fill="#666"/>
+                        <circle cx="90" cy="65" r="8" fill="#2C2C2C" stroke="#000" stroke-width="2"/>
+                        <circle cx="90" cy="65" r="4" fill="#666"/>
+                        <!-- Truck Details -->
+                        <rect x="85" y="30" width="15" height="8" rx="1" fill="#87CEEB"/>
+                        <rect x="85" y="42" width="4" height="6" rx="1" fill="#4169E1"/>
+                    </svg>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    Selamat Datang di <span class="text-yellow-300">UD BAROKAH</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                    Suplier pasir dan batu murah se-JABODETABEK. Semua kebutuhan bahan bangunan anda ada disini
+                </p>
+                <div class="space-x-4">
+                    <button onclick="openMap()" class="bg-yellow-400 text-amber-800 px-8 py-3 rounded-full font-semibold hover:bg-yellow-300 transition duration-300">
+                        Alamat Kami
+                    </button>
+                    <button onclick="scrollToSection('kontak')" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-amber-800 transition duration-300">
+                        Pesan Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="tentang" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Mengapa Beli di UD BAROKAH?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Kami memberikan pelayanan terbaik dengan berbagai keuntungan untuk memudahkan kebutuhan bahan bangunan Anda.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-gradient-to-br from-amber-50 to-amber-100 p-8 rounded-xl">
+                    <div class="text-4xl mb-4">
+                        <svg class="w-12 h-12 mx-auto text-amber-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 7h-3V6a4 4 0 0 0-8 0v1H5a1 1 0 0 0-1 1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8a1 1 0 0 0-1-1zM10 6a2 2 0 0 1 4 0v1h-4V6zm8 13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9h2v1a1 1 0 0 0 2 0V9h4v1a1 1 0 0 0 2 0V9h2v10z"/>
+                            <path d="M3 5h18l-2 14H5L3 5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Gratis Ongkos Kirim</h3>
+                    <p class="text-gray-600">Nikmati layanan pengiriman gratis untuk area JABODETABEK dengan pembelian minimal tertentu.</p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl">
+                    <div class="text-4xl mb-4">
+                        <svg class="w-12 h-12 mx-auto text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 8h-3V4H3v4H0l4 4 4-4H5V6h10v2h-3l4 4 4-4zM0 18h24v2H0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Gratis Bongkar Muat</h3>
+                    <p class="text-gray-600">Tim kami akan membantu proses bongkar muat material langsung di lokasi proyek Anda.</p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl">
+                    <div class="text-4xl mb-4">
+                        <svg class="w-12 h-12 mx-auto text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Bayar di Tempat (COD)</h3>
+                    <p class="text-gray-600">Sistem pembayaran fleksibel, bayar setelah barang sampai di lokasi untuk kenyamanan Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pasir Section -->
+    <section id="pasir" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">PASIR</h2>
+                <p class="text-xl text-gray-600">Pasir pilihan dengan kualitas tinggi</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3OXsJ3PM3ubZ3HFvVIkkNh44NfgPQ0WLfdhclWjYXsFJA6l23-r9bOy_RjzL7pE-f4GlNP_ad5v_d24DDJgcPthtHAn-6Kx4Y9aIicS2J17wRlQnz33oiW5BMx88McRfRYi_7_JLd4o3nAu-1y7F-vpnMSwSj93nKS_1ch0ajNQa8N7NoyeHW1_aF8t0/s600/Pasir%20Rangkas.jpg" alt="Pasir Rangkas" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Pasir Rangkas</h3>
+                        <p class="text-gray-600 mb-4">Pasir berkualitas tinggi dari Rangkas dengan tekstur halus, cocok untuk berbagai kebutuhan konstruksi.</p>
+                        <button onclick="scrollToSection('kontak')" class="text-amber-600 font-semibold hover:text-amber-800 transition duration-300">Pesan Sekarang →</button>
+                    </div>
+                </article>
+                
+                <article class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSfXfeOPmNq6tf5q4h9vuTrwY95B9iPi8oSMj5LMOXWn7UmEZO47w7HsPzXan1wuYzKw9_gC6wuRctmrfov-JQOwtq6zGv-IxLhuKz8WSFA1MscKbPY2-cYztV1s346mqe9GIqnxcXQK3cMss9vaGKvGlGtGH93_fdOPivsU-nw1tFWGGsfrd73B6U91o/s640/Pasir%20urug.jpg" alt="Pasir Urug" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Pasir Urug</h3>
+                        <p class="text-gray-600 mb-4">Pasir urug berkualitas untuk penimbunan dan perataan tanah dengan harga terjangkau.</p>
+                        <button onclick="scrollToSection('kontak')" class="text-amber-600 font-semibold hover:text-amber-800 transition duration-300">Pesan Sekarang →</button>
+                    </div>
+                </article>
+                
+                <article class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIzQ_uUPW-LxZvoLUjRBCzHwkFcY5dsucqibxcPG2wYKWZOQKDcmKUFSjf60FueZbatJ-j5A7-B7qZsRUBf3dSzUrPQI838-7mz8gWUufGS4ke2ijrbLSgZlynd-_2rmoHstoOjCowEXu_cY01osSIwshfdUf7ASLeQvyifbs8XsyR-xVqcnpkXu9clnE/s1156/Pasir%20Putih%20Cilegon.jpg" alt="Pasir Putih Cilegon" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Pasir Putih Cilegon</h3>
+                        <p class="text-gray-600 mb-4">Pasir putih premium dari Cilegon dengan kualitas terbaik untuk proyek konstruksi berkualitas tinggi.</p>
+                        <button onclick="scrollToSection('kontak')" class="text-amber-600 font-semibold hover:text-amber-800 transition duration-300">Pesan Sekarang →</button>
+                    </div>
+                </article>
+                
+                <article class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgf4llBfhRcpnDRiuFPdd4gbstIQLx7rPXVbdDoNZVsg-9feB5UUHYfzjonqEe5qXahk85nENxhTBtEdFKWZdH3uo508dJKfZFKLI5OljdjBBjouGAgyvv4UDfxW1xnktMjlBtdtSCKam-TdCjr7K9MdIJPLxwRgb_FIaDc3FNx5LI_WCIyhSNEctD5cCw/s900/Pasir%20Hitam.jpg" alt="Pasir Hitam" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Pasir Hitam</h3>
+                        <p class="text-gray-600 mb-4">Pasir hitam dengan kandungan mineral tinggi, ideal untuk proyek khusus dan landscaping.</p>
+                        <button onclick="scrollToSection('kontak')" class="text-amber-600 font-semibold hover:text-amber-800 transition duration-300">Pesan Sekarang →</button>
+                    </div>
+                </article>
+                
+                <article class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikzF0REa3yDpUFIyl_IJXOdMPUJoNLpnu-4EusVn1U-e0UsoKF97pprYklhV8b701EX7ESik7Gfc9W3GCFVABpaiS9Un19OFYqbm50BW8jN9dzgYj8NVu5qUCZEdfJH7bK4zxItpjXy44KRZ8QnPFvDaGYs1Hsj0AX4lQgBPwKPSKlunPUUWkKs90ESBU/s500/pasir%20bangka.jpeg" alt="Pasir Bangka" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Pasir Bangka</h3>
+                        <p class="text-gray-600 mb-4">Pasir Bangka berkualitas premium dengan butiran halus dan bersih, cocok untuk plesteran dan acian.</p>
+                        <button onclick="scrollToSection('kontak')" class="text-amber-600 font-semibold hover:text-amber-800 transition duration-300">Pesan Sekarang →</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Batu Section -->
+    <section id="galeri" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Batu</h2>
+                <p class="text-xl text-gray-600">Pilihan jenis Batu untuk melengkapi bahan bangunan anda</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <article class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhogxRB50okhccSbiZuhTo7e2HC2-t22QFmbL79m-ErkwFk2IGjs1gDV7dNj8-xjqUFnWXk_q7j0CG_nMrhMlwSHSeSNew88pzUAf6Twfea3QKZaoTXIODtP7dg-q5Wjc_sjNn_D9u64g7PONb8oSoEc6XBfx6sIwIW0IImDtWm95vNI2e3orcIyq39qnk/s859/Abu%20Batu.jpg" alt="Abu Batu" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Abu Batu</h3>
+                        <p class="text-gray-600 text-sm mb-3">Material halus hasil pecahan batu, cocok untuk campuran beton dan plesteran dengan kualitas terbaik.</p>
+                        <button onclick="scrollToSection('kontak')" class="text-amber-600 font-semibold hover:text-amber-800 transition duration-300 text-sm">Pesan Sekarang →</button>
+                    </div>
+                </article>
+                
+                <article class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoxqmQUmaXNxRl2KqnEd7z-FuB-Chxba2JRPYNd3blJU3f4c8KvozvuoGSaTgAcPpqjNOcR6ZxdmnSpi9MpetYHV-EWaxogGajIJBNs021GkkVC27GMYm7I0SeeOEKELGvaRQLlr2Yj8BTIoNtLCKoj-M05cUlvx8fs5Xnp3pQhgFa4d_A49Vinh2CXdM/s939/Batu%20Split.jpg" alt="Batu Split" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Batu Split</h3>
+                        <p class="text-gray-600 text-sm mb-3">Batu pecah dengan ukuran seragam, ideal untuk campuran beton cor dan konstruksi yang membutuhkan kekuatan tinggi.</p>
+                        <button onclick="scrollToSection('kontak')" class="text-amber-600 font-semibold hover:text-amber-800 transition duration-300 text-sm">Pesan Sekarang →</button>
+                    </div>
+                </article>
+                
+                <article class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhU9vf9lUaVJ6hcMUdzPCSlykKxzexy0X5MNY2dV1Pmj1Ih_9CVOIbBYkky3vzUIlQTKSZxar4pz913OqwW98zNDL6O65Mlc8kr5hbLvWqEhkJgkC9r1ZgIFCVH6iy05IEyiVilKlOvk33IIbDSSfq1GWXPKmTjrEy2Ec_1GvBhNxtdQ4MVvfHQHYk7qRs/s600/Batu%20Kali.jpg" alt="Batu Kali" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Batu Kali</h3>
+                        <p class="text-gray-600 text-sm mb-3">Batu alam bulat dari sungai, sempurna untuk pondasi, bronjong, dan dekorasi taman dengan tampilan natural.</p>
+                        <button onclick="scrollToSection('kontak')" class="text-amber-600 font-semibold hover:text-amber-800 transition duration-300 text-sm">Pesan Sekarang →</button>
+                    </div>
+                </article>
+                
+                <article class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHrRzfj08UeAbputXTfGGhdFP3VG9wLOTWnc5QHCX1T-7n0Wg5cLZ0d7UwDmUHErpi86bnedppOiuWNIymouxTf5Se9wJHQ0-9_wmRHuMD8ykJYiCZqs6bFAA1QfJNUtqOqy1r2j0yoTDCri89CGNOzNSz_kpzLz8qRKYARfhI4PfjWUree01k1xmojT4/s1090/Bata%20Merah.jpg" alt="Batu Bata Merah" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Batu Bata Merah</h3>
+                        <p class="text-gray-600 text-sm mb-3">Bata merah berkualitas tinggi dari tanah liat pilihan, tahan lama dan cocok untuk dinding struktural maupun dekoratif.</p>
+                        <button onclick="scrollToSection('kontak')" class="text-amber-600 font-semibold hover:text-amber-800 transition duration-300 text-sm">Pesan Sekarang →</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Pesan Sekarang</h2>
+                <p class="text-xl text-gray-600">Siap melayani kebutuhan bahan bangunan Anda dengan pelayanan terbaik!</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-6 text-gray-800">Informasi Kontak</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="text-2xl mr-4">📧</div>
+                                <div>
+                                    <p class="font-medium text-gray-800">Email</p>
+                                    <p class="text-gray-600">udbarokahcisauk@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="text-2xl mr-4">📱</div>
+                                <div>
+                                    <p class="font-medium text-gray-800">Telepon</p>
+                                    <p class="text-gray-600">+62 813-8050-4419</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="text-2xl mr-4">📍</div>
+                                <div>
+                                    <p class="font-medium text-gray-800">Alamat</p>
+                                    <p class="text-gray-600">Jl. Raya Cisauk Lapan, Sampora, Kec. Cisauk, Kabupaten Tangerang, Banten</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-6 text-gray-800">Kirim Pesan</h3>
+                        <form class="space-y-4" onsubmit="sendWhatsApp(event)">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nama</label>
+                                <input type="text" id="nama" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent" placeholder="Nama Anda" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nomor WhatsApp</label>
+                                <input type="tel" id="whatsapp" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent" placeholder="08xxxxxxxxxx" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Pesan</label>
+                                <textarea rows="4" id="pesan" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent" placeholder="Tulis kebutuhan bahan bangunan Anda..." required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-amber-600 text-white py-3 rounded-lg font-semibold hover:bg-amber-700 transition duration-300">
+                                Kirim via WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-2xl font-bold mb-4">🏗️ UD BAROKAH</div>
+                    <p class="text-gray-400">Suplier pasir dan bahan bangunan terpercaya se-JABODETABEK dengan pelayanan terbaik.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Menu</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#beranda" class="hover:text-white transition duration-300">Beranda</a></li>
+                        <li><a href="#tentang" class="hover:text-white transition duration-300">Tentang</a></li>
+                        <li><a href="#pasir" class="hover:text-white transition duration-300">Pasir</a></li>
+                        <li><a href="#galeri" class="hover:text-white transition duration-300">Batu</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Produk</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#pasir" class="hover:text-white transition duration-300">Pasir Rangkas</a></li>
+                        <li><a href="#pasir" class="hover:text-white transition duration-300">Pasir Urug</a></li>
+                        <li><a href="#pasir" class="hover:text-white transition duration-300">Pasir Putih Cilegon</a></li>
+                        <li><a href="#pasir" class="hover:text-white transition duration-300">Pasir Bangka</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Ikuti Kami</h4>
+                    <div class="flex space-x-4">
+                        <button class="text-2xl hover:text-blue-400 transition duration-300">📘</button>
+                        <button class="text-2xl hover:text-blue-300 transition duration-300">🐦</button>
+                        <button class="text-2xl hover:text-pink-400 transition duration-300">📷</button>
+                        <button class="text-2xl hover:text-red-500 transition duration-300">📺</button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 UD BAROKAH. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Handle all navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // WhatsApp submission handler
+        function sendWhatsApp(event) {
+            event.preventDefault();
+            
+            const nama = document.getElementById('nama').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const pesan = document.getElementById('pesan').value;
+            
+            const message = `Halo UD BAROKAH,\n\nNama: ${nama}\nNo. WhatsApp: ${whatsapp}\n\nPesan:\n${pesan}\n\nTerima kasih!`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/62${whatsapp.replace(/^0/, '')}?text=${encodedMessage}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Google Maps popup function
+        function openMap() {
+            const mapUrl = 'https://maps.app.goo.gl/kjn88krfEMLrRpEL8';
+            
+            // Create modal
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="bg-white rounded-lg p-6 max-w-4xl w-full mx-4 max-h-[90vh] overflow-auto">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800">Lokasi UD BAROKAH</h3>
+                        <button onclick="closeMap()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                    </div>
+                    <div class="aspect-video">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.746!2d106.6234567!3d-6.3234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e95620a297d3%3A0x1cef8b8b8b8b8b8b!2sJl.%20Raya%20Cisauk%20Lapan%2C%20Sampora%2C%20Kec.%20Cisauk%2C%20Kabupaten%20Tangerang%2C%20Banten!5e0!3m2!1sen!2sid!4v1640995200000" 
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <a href="${mapUrl}" target="_blank" class="bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-700 transition duration-300">
+                            Buka di Google Maps
+                        </a>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMap() {
+            const modal = document.querySelector('.fixed.inset-0');
+            if (modal) {
+                document.body.removeChild(modal);
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-xl');
+            } else {
+                nav.classList.remove('shadow-xl');
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96110809f5b66d10',t:'MTc1MjgzMTc3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
